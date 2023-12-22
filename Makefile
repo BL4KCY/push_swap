@@ -6,7 +6,37 @@
 #    By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/22 10:21:19 by melfersi          #+#    #+#              #
-#    Updated: 2023/12/22 10:24:26 by melfersi         ###   ########.fr        #
+#    Updated: 2023/12/22 10:26:17 by melfersi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/12/07 12:49:34 by melfersi          #+#    #+#              #
+#    Updated: 2023/12/15 11:08:54 by melfersi         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME=push_swap
+CC=cc
+CFLAGS=-Wall -Wextra -Werror
+RM=rm -rf
+
+
+SRC= 
+
+OBJ=$(SRC:.c=.o)
+
+$(NAME):$(OBJ)
+	$(CC) $(CFLAGS) $^ -o $@
+clean:
+	$(RM) $(OBJ)
+fclean:clean
+	$(RM) $(NAME)
+all:$(NAME)
+re:fclean all
