@@ -6,7 +6,7 @@
 #    By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 10:12:32 by melfersi          #+#    #+#              #
-#    Updated: 2024/01/08 10:51:30 by melfersi         ###   ########.fr        #
+#    Updated: 2024/01/08 11:12:41 by melfersi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INCLUDES = includes
 LIB_INCLUDES = libft/includes
 
 #______file names______#
-FIlES = main.c
+FIlES = main.c operation.c
 
 #BONUS_FIlES = <file name> ...
 
