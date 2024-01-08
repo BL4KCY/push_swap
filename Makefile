@@ -3,53 +3,72 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+         #
+#    By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/22 10:21:19 by melfersi          #+#    #+#              #
-#    Updated: 2024/01/07 14:28:57 by melfersi         ###   ########.fr        #
+#    Created: 2023/11/01 10:12:32 by melfersi          #+#    #+#              #
+#    Updated: 2024/01/08 10:51:30 by melfersi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/12/07 12:49:34 by melfersi          #+#    #+#              #
-#    Updated: 2023/12/15 11:08:54 by melfersi         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-
-NAME = push_swap
-CFLAGS = -Wall -Wextra -Werror
+#______command and their flags______#
 RM = rm -rf
+CFLAGS = -Wall -Wextra -Werror
+CC = cc
+AR = ar -crs
+INCLUDES = includes
 
-#diractories
-INCLUDES = libft/includes
-
-SRC = main.c
-
-OBJ = $(SRC:.c=.o)
+#______diractories______#
 OBJ_DIR = obj
+#BDIR_OB = bns_obj
+SRC_DIR  = src
+#BNS_DIR = bonus
+INCLUDES = includes
+LIB_INCLUDES = libft/includes
 
-$(NAME):$(OBJ)
-	@$(MAKE) -C libft libft.a > /dev/null
-	$(CC) $(CFLAGS) -I$(INCLUDES) $(OBJ_DIR)/$^ libft/libft.a -o $@
-%.o:%.c
+#______file names______#
+FIlES = main.c
+
+#BONUS_FIlES = <file name> ...
+
+#atterns subs
+SOURCES = $(FIlES:%.c=$(SRC_DIR)/%.c)
+
+#BONUS_SOURCES = $(BONUS_FIlES:ft_%.c=$(BNS_DIR)/ft_%.c)
+
+OBJECTS = $(SOURCES:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
+
+#BONUS_OBJECTS = $(BONUS_SOURCES:$(BNS_DIR)%.c=$(BDIR_OB)%.o)
+
+# static library name
+NAME = push_swap
+LIB = libft
+
+#______________Rules______________#
+
+$(NAME):$(OBJECTS) $(LIB)/libft.a
+	$(CC) $^ -I$(INCLUDES) -I$(LIB_INCLUDES) -o $@
+
+# impicit rule for mandatory
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
-	$(CC) -c $^ -o obj/$@
+	$(CC) $(CFLAGS) -c $< -I$(INCLUDES) -I$(LIB_INCLUDES) -o $@
 
+$(LIB)/%.a:
+	$(MAKE) -C $(LIB)
+
+# impicit rule for bonus
+# $(BDIR_OB)/%.o:$(BNS_DIR)/%.c
+# 	@mkdir -p $(BDIR_OB)
+# 	$(CC) $(CFLAGS) -c $< -I$(INCLUDES) -o $@
+# 	$(AR) $(NAME) $@
+
+#______cleaning______#
 clean:
 	$(RM) $(OBJ_DIR)
-	@$(MAKE) -C libft clean > /dev/null
+	$(MAKE) -C $(LIB) fclean
+#	$(RM) $(BDIR_OB)
 
-fclean:clean
+fclean: clean
 	$(RM) $(NAME)
-	@$(MAKE) -C libft fclean > /dev/null
 
-all:$(NAME)
-
-re:fclean all
+.PHONY: clean
