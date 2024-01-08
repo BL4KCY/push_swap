@@ -6,7 +6,7 @@
 #    By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 10:12:32 by melfersi          #+#    #+#              #
-#    Updated: 2024/01/08 11:12:41 by melfersi         ###   ########.fr        #
+#    Updated: 2024/01/08 11:34:23 by melfersi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,6 +47,10 @@ LIB = libft
 
 $(NAME):$(OBJECTS) $(LIB)/libft.a
 	$(CC) $^ -I$(INCLUDES) -I$(LIB_INCLUDES) -o $@
+
+re: fclean all
+
+all: $(NAME) bonus
 
 # impicit rule for mandatory
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
