@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 09:57:55 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/09 18:04:54 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/09 21:48:41 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@
 void	swap(int *stack, int size);
 
 void	push(int *dst, int *src, int *sz_dst, int *sz_src);
+
+void	rotate(int *stack, int size);
+
+void	rrotate(int *stack, int size);
 
 #endif
