@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 09:57:55 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/09 21:48:41 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/09 22:11:40 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,21 @@
 
 /*____________________macros functions____________________*/
 
-# define SA(stack_a, size_a)(swap(stack_a, size_a), ft_puts("sa"))
+# define SA(A, B)(swap(A, B), ft_puts("sa"))
 
-# define SB(stack_b, size_b)(swap(stack_b, size_b), ft_puts("sb"))
+# define SB(B, A)(swap(B, A), ft_puts("sb"))
 
-# define SS(sa, sb, sza, szb)(swap(sa, sza),swap(sb, szb),ft_puts("ss"))
+# define SS(A, B, SZA, SZB)(swap(A, SZA),swap(B, SZB),ft_puts("ss"))
 
-# define PA(a, b, size_a, size_b)(push(a, b, size_a, size_b),ft_puts("pa"))
+# define PA(A, B, size_A, size_B)(push(A, B, size_A, size_B),ft_puts("pa"))
 
-# define PB(b, a, size_b, size_a)(push(b, a, size_b, size_a),ft_puts("pb"))
+# define PB(B, A, size_B, size_A)(push(B, A, size_B, size_A),ft_puts("pb"))
+
+# define RA(stack, size)(rotate(stack, size),ft_puts("ra"))
+
+# define RB(stack, size)(rotate(stack, size),ft_puts("rb"))
+
+# define RR(A, B, SZA, SZB)(rotate(A,SZA),rotate(B,SZB),ft_puts("rr"))
 
 /*____________________Prototypes____________________*/
 
