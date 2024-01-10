@@ -6,11 +6,12 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 09:57:59 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/09 21:56:16 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/10 10:55:22 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 void	push(int *dst, int *src, int *sz_dst, int *sz_src)
 {
