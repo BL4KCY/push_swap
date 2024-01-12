@@ -5,52 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/23 09:57:59 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/10 10:55:22 by melfersi         ###   ########.fr       */
+/*   Created: 2024/01/12 10:06:05 by melfersi          #+#    #+#             */
+/*   Updated: 2024/01/12 10:38:54 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-void	push(int *dst, int *src, int *sz_dst, int *sz_src)
+void	push(t_list **dst, t_list **src)
 {
-	if (*sz_src > 0)
-		dst[(*sz_dst)++] = src[--(*sz_src)];
-}
+	t_list	*tmp;
 
-void	swap(int *stack, int size)
-{
-	int	tmp;
-	if (size > 1)
+	if (ft_lstsize(*src) > 0)
 	{
-		tmp = stack[0];
-		stack[0] = stack[1];
-		stack[1] = tmp;
+		tmp = *src;
+		*src = (*src)->next;
+		tmp->next = *dst;
+		*dst = tmp;
 	}
 }
 
-void	rotate(int *stack, int size)
+void	swap(t_list **lst)
 {
-	int	tmp;
-	int	index;
+	t_list	*tmp;
 
-	index = -1;
-	tmp = stack[size - 1];
-	while (++index < size - 1)
-		stack[size - index - 1] = stack[size - index - 2];
-	stack[size - index - 1] = tmp;
+	if (ft_lstsize(*lst) > 1)
+	{
+		tmp = *lst;
+		*lst = (*lst)->next;
+		tmp->next = (*lst)->next;
+		(*lst)->next = tmp;
+	}
 }
 
-void	rrotate(int *stack, int size)
+void	rotate(t_list **lst)
 {
-	int	tmp;
-	int	index;
+	t_list	*tmp;
 
-	index = 0;
-	tmp = stack[index];
-	while (++index < size)
-		stack[index - 1] = stack[index];
-	stack[index - 1] = tmp;
+	if (ft_lstsize(*lst) > 1)
+	{
+		tmp = *lst;
+		*lst = (*lst)->next;
+		tmp->next = NULL;
+		ft_lstadd_back(lst, tmp);
+	}
 }
 
+void	reverse_rotate(t_list **lst)
+{
+	t_list	*tmp;
+	t_list	*last;
+
+	if (ft_lstsize(*lst) > 1)
+	{
+		tmp = *lst;
+		last = ft_lstlast(*lst);
+		while (tmp->next != last)
+			tmp = tmp->next;
+		tmp->next = NULL;
+		ft_lstadd_front(lst, last);
+	}
+}
