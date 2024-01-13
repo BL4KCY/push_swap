@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 09:57:55 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/12 10:15:33 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/13 10:22:22 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdbool.h>
 # include "libft.h"
 
 /*---------------------- Macro Functions ----------------------*/
@@ -63,5 +64,15 @@ void	swap(t_list **lst);
 void	rotate(t_list **lst);
 
 void	reverse_rotate(t_list **lst);
+
+void	push_swap(int ac, char **av);
+
+void	parse_args(int ac, char **av, t_list **stack_a);
+
+void	ft_free_split(char **split);
+
+bool	is_valid_arg(char *arg, t_list *stack_a);
+
+bool	exist(t_list *stack, int value);
 
 #endif
