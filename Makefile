@@ -12,7 +12,7 @@ INCLUDES = includes
 LIB_INCLUDES = libft/includes
 
 #______file names______#
-FILES = main.c operation.c
+FILES = main.c operation.c stacks_init.c
 #operation.c actions.c stacks_init.c
 
 #______patterns and substitutions______#
