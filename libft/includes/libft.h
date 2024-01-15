@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <limits.h>
+# include <stdbool.h>
 # include "ft_printf.h"
 
 typedef struct s_list
@@ -23,6 +24,18 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }t_list;
+
+typedef struct s_stack
+{
+	int				value;
+	int				index;
+	int				cost;
+	bool			above_median;
+	bool			cheapest;
+	struct s_stack	*target;
+	struct s_stack	*next;
+	struct s_stack	*prev;
+}t_stack;
 
 typedef unsigned char	t_byte;
 
@@ -94,21 +107,21 @@ void	ft_putendl_fd(char *s, int fd);
 
 void	ft_putnbr_fd(int n, int fd);
 
-t_list	*ft_lstnew(void *content);
+t_stack	*ft_lstnew(int value);
 
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
 
-int		ft_lstsize(t_list *lst);
+int		ft_lstsize(t_stack *lst);
 
-t_list	*ft_lstlast(t_list *lst);
+t_stack	*ft_lstlast(t_stack *lst);
 
-void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstdelone(t_stack *lst);
 
-void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstclear(t_stack **lst);
 
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+void	ft_lstiter(t_stack *lst, void (*f)(int));
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
