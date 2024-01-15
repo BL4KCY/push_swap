@@ -6,7 +6,7 @@
 #    By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 10:12:32 by melfersi          #+#    #+#              #
-#    Updated: 2024/01/12 15:15:35 by melfersi         ###   ########.fr        #
+#    Updated: 2024/01/15 21:13:51 by melfersi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ FIlES = ft_atoi.c ft_calloc.c ft_isalpha.c ft_isdigit.c ft_itoa.c ft_memcmp.c\
 		ft_putchar.c ft_putnbr.c ft_putstr.c ft_hexprint.c ft_puts.c
 
 BONUS_FIlES = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c\
-				ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c
+				ft_lstiter.c ft_lstlast.c ft_lstnew.c ft_lstsize.c
 
 #patterns subs
 SOURCES = $(FIlES:ft_%.c=$(SRC_DIR)/ft_%.c)
