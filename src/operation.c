@@ -6,15 +6,15 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 10:06:05 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/13 12:49:17 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/15 10:29:08 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_list **dst, t_list **src)
+void	push(t_stack **dst, t_stack **src)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (ft_lstsize(*src) > 0)
 	{
@@ -25,9 +25,9 @@ void	push(t_list **dst, t_list **src)
 	}
 }
 
-void	swap(t_list **lst)
+void	swap(t_stack **lst)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (ft_lstsize(*lst) > 1)
 	{
@@ -38,9 +38,9 @@ void	swap(t_list **lst)
 	}
 }
 
-void	rotate(t_list **lst)
+void	rotate(t_stack **lst)
 {
-	t_list	*tmp;
+	t_stack	*tmp;
 
 	if (ft_lstsize(*lst) > 1)
 	{
@@ -51,10 +51,10 @@ void	rotate(t_list **lst)
 	}
 }
 
-void	reverse_rotate(t_list **lst)
+void	reverse_rotate(t_stack **lst)
 {
-	t_list	*tmp;
-	t_list	*last;
+	t_stack	*tmp;
+	t_stack	*last;
 
 	if (ft_lstsize(*lst) > 1)
 	{
