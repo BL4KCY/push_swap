@@ -6,31 +6,28 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/12 10:55:17 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/13 15:41:35 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/15 12:17:11 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-bool	is_sorted(t_list *stack)
+bool	is_sorted(t_stack *stack)
 {
-	t_list	*tmp;
-
-	tmp = stack;
-	while (tmp && tmp->next)
+	while (stack && stack->next)
 	{
-		if (*(int *)tmp->content > *(int *)tmp->next->content)
+		if (stack->value > stack->next->value)
 			return (false);
-		tmp = tmp->next;
+		stack = stack->next;
 	}
 	return (true);
 }
 
-bool	exist(t_list *stack, int value)
+bool	exist(t_stack *stack, int value)
 {
 	while (stack)
 	{
-		if (*(int *)stack->content == value)
+		if (stack->value == value)
 			return (true);
 		stack = stack->next;
 	}
@@ -47,34 +44,30 @@ void	ft_free_split(char **split)
 	free(split);
 }
 
-int	get_min(t_list *stack)
+t_stack	*get_min(t_stack *stack)
 {
-	int		min;
-	t_list	*tmp;
+	t_stack	*min;
 
-	tmp = stack;
-	min = *(int *)tmp->content;
-	while (tmp)
+	min = stack;
+	while (stack)
 	{
-		if (*(int *)tmp->content < min)
-			min = *(int *)tmp->content;
-		tmp = tmp->next;
+		if (stack->value < min->value)
+			min = stack;
+		stack = stack->next;
 	}
 	return (min);
 }
 
-int	get_max(t_list *stack)
+t_stack	*get_max(t_stack *stack)
 {
-	int		max;
-	t_list	*tmp;
+	t_stack	*max;
 
-	tmp = stack;
-	max = *(int *)tmp->content;
-	while (tmp)
+	max = stack;
+	while (stack)
 	{
-		if (*(int *)tmp->content > max)
-			max = *(int *)tmp->content;
-		tmp = tmp->next;
+		if (stack->value > max->value)
+			max = stack;
+		stack = stack->next;
 	}
 	return (max);
 }
