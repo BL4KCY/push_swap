@@ -6,26 +6,20 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:38:58 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/15 12:03:00 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:21:31 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print(void *content)
+void	print(int content)
 {
-	ft_putnbr_fd(*(int *)content, STDOUT_FILENO);
+	ft_putnbr_fd(content, STDOUT_FILENO);
 	ft_putchar_fd('\n', STDOUT_FILENO);
 }
 
 
 int main(int ac, char **av)
-{
-	push_swap(ac, av);
-	return (0);
-}
-
-void	push_swap(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -33,7 +27,7 @@ void	push_swap(int ac, char **av)
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac == 1)
-		return ;
+		return (0);
 	parse_args(ac, av, &stack_a);
 	if (!is_sorted(stack_a))
 	{
@@ -45,4 +39,6 @@ void	push_swap(int ac, char **av)
 			sort_stacks(&stack_a, &stack_b);
 	}
 	ft_lstclear(&stack_a);
+	return (0);
 }
+
