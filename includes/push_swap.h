@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 09:57:55 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/15 21:21:48 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/16 09:17:45 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ void	swap(t_stack **lst);
 void	rotate(t_stack **lst);
 
 void	reverse_rotate(t_stack **lst);
-
-void	push_swap(int ac, char **av);
 
 void	parse_args(int ac, char **av, t_stack **stack_a);
 
