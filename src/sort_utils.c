@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:02:49 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/15 21:24:23 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:23:18 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void	current_index(t_stack *stack)
 	while (stack)
 	{
 		stack->index = i;
-		if (i-- <= med)
+		if (i < med)
 			stack->above_median = true;
 		else
 			stack->above_median = false;
 		stack = stack->next;
+		i++;
 	}
 }
 
@@ -34,6 +35,7 @@ void	set_cheapest(t_stack *stack)
 {
 	t_stack	*cheapest_node;
 	long	cheapest_cost;
+
 	cheapest_cost = LONG_MAX;
 	while (stack)
 	{
@@ -42,6 +44,8 @@ void	set_cheapest(t_stack *stack)
 			cheapest_cost = stack->cost;
 			cheapest_node = stack;
 		}
+		else
+			stack->cheapest = false;
 		stack = stack->next;
 	}
 	cheapest_node->cheapest = true;

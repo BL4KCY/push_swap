@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 10:23:59 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/15 17:44:03 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/16 11:27:11 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,15 @@
 
 void	sort_three(t_stack **stack_a)
 {
-	int		a;
-	int		b;
-	int		c;
+	t_stack	*max;
 
-	a = (*stack_a)->value;
-	b = (*stack_a)->next->value;
-	c = (*stack_a)->next->next->value;
-	if (a > b && b < c && a < c)
-		SA(stack_a);
-	else if (a > b && b > c && a > c)
-	{
-		SA(stack_a);
-		RRA(stack_a);
-	}
-	else if (a > b && b < c && a > c)
-	{
+	max = get_max(*stack_a);
+	if (*stack_a == max)
 		RA(stack_a);
-	}
-	else if (a < b && b > c && a < c)
-	{
+	else if ((*stack_a)->next == max)
 		RRA(stack_a);
+	if ((*stack_a)->value > (*stack_a)->next->value)
 		SA(stack_a);
-	}
-	else if (a < b && b > c && a > c)
-		RRA(stack_a);
 }
 
 void	sort_stacks(t_stack **a, t_stack **b)
@@ -46,15 +30,20 @@ void	sort_stacks(t_stack **a, t_stack **b)
 	int		len_a;
 
 	len_a = ft_lstsize(*a);
+	if (len_a-- > 3)
+		PB(b, a);
+	if (len_a-- > 3)
 		PB(b, a);
 	while (len_a-- > 3 && !is_sorted(*a))
 	{
+		// ft_puts("here1");
 		init_a_nodes(*a, *b);
 		push_a(a, b);
 	}
 	sort_three(a);
 	while (*b)
 	{
+		// ft_puts("here2");
 		init_b_nodes(*a, *b);
 		push_b(a, b);
 	}
