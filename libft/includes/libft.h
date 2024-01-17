@@ -33,8 +33,7 @@ typedef struct s_stack
 	bool			above_median;
 	bool			cheapest;
 	struct s_stack	*target;
-	struct s_stack	*next;
-	struct s_stack	*prev;
+	struct s_stack	*next;;
 }t_stack;
 
 typedef unsigned char	t_byte;
