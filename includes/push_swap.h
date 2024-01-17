@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 09:57:55 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/16 09:17:45 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/17 13:05:10 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@
 # define SA(A)(swap(A), ft_puts("sa"))
 
 // Swap the top elements of stack B and print "sb"
-# define SB(B)(swap(B), ft_puts("sb"t_stack	*get_max(t_stack *stack)uts("ss"))
+# define SB(B)(swap(B), ft_puts("sb"))
+
+// Swap both stacks tops A and B and print "ss"
+# define SS(A, B)(swap(A), swap(B), ft_puts("ss"))
 
 // Push the top element of stack A to stack B, and print "pa"
 # define PA(A, B)(push(A, B),ft_puts("pa"))
@@ -105,5 +108,9 @@ t_stack	*get_min(t_stack *stack);
 t_stack	*get_max(t_stack *stack);
 
 bool	is_valid_num(char *arg);
+
+void	both_rrotate(t_stack **a, t_stack **b, t_stack *top);
+
+void	both_rotate(t_stack **a, t_stack **b, t_stack *top);
 
 #endif
