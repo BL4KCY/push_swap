@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:38:58 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/16 11:21:31 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/17 13:10:08 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int main(int ac, char **av)
 		else
 			sort_stacks(&stack_a, &stack_b);
 	}
+	// ft_puts("stack A");
+	// ft_lstiter(stack_a, print);
 	ft_lstclear(&stack_a);
 	return (0);
 }

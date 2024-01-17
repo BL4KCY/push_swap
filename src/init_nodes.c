@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:11:05 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/16 10:48:00 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/17 10:25:08 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,24 @@ void	cost_to_a(t_stack *a, t_stack *b)
 		else
 			a->cost += size_b - a->target->index;
 		a = a->next;
+	}
+}
+
+void	both_rotate(t_stack **a, t_stack **b, t_stack *top)
+{
+	while (*a != top && *b != top->target)
+	{
+		RR(a, b);
+		current_index(*a);
+		current_index(*b);
+	}
+}
+void	both_rrotate(t_stack **a, t_stack **b, t_stack *top)
+{
+	while (*a != top && *b != top->target)
+	{
+		RRR(a, b);
+		current_index(*a);
+		current_index(*b);
 	}
 }

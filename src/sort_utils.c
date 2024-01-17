@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:02:49 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/16 11:23:18 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/17 10:26:24 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@ void	current_index(t_stack *stack)
 	int		i;
 	int		med;
 
+	if (!stack)
+		return ;
 	i = 0;
 	med = ft_lstsize(stack) / 2;
 	while (stack)
 	{
 		stack->index = i;
-		if (i < med)
+		if (i <= med)
 			stack->above_median = true;
 		else
 			stack->above_median = false;
@@ -36,6 +38,8 @@ void	set_cheapest(t_stack *stack)
 	t_stack	*cheapest_node;
 	long	cheapest_cost;
 
+	if (!stack)
+		return ;
 	cheapest_cost = LONG_MAX;
 	while (stack)
 	{
@@ -57,9 +61,9 @@ void	push_a(t_stack **a, t_stack **b)
 
 	cheapest = get_cheapest(*a);
 	if (cheapest->above_median && cheapest->target->above_median)
-		RR(a, b);
+		both_rotate(a, b, cheapest);
 	else if (!cheapest->above_median && !cheapest->target->above_median)
-		RRR(a, b);
+		both_rrotate(a, b, cheapest);
 	arrange(a, cheapest, 'a');
 	arrange(b, cheapest->target, 'b');
 	PB(b, a);
