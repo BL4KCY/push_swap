@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+         #
+#    By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/01 10:12:32 by melfersi          #+#    #+#              #
-#    Updated: 2024/01/15 21:13:51 by melfersi         ###   ########.fr        #
+#    Updated: 2024/01/18 11:41:09 by melfersi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ FIlES = ft_atoi.c ft_calloc.c ft_isalpha.c ft_isdigit.c ft_itoa.c ft_memcmp.c\
 		ft_isalnum.c ft_isascii.c ft_isprint.c ft_memchr.c ft_memcpy.c ft_memset.c\
 		ft_putendl_fd.c ft_putstr_fd.c ft_strchr.c ft_striteri.c ft_strlcat.c ft_strlen.c\
 		ft_strncmp.c ft_strrchr.c ft_substr.c ft_toupper.c ft_printf.c ft_memprint.c\
-		ft_putchar.c ft_putnbr.c ft_putstr.c ft_hexprint.c ft_puts.c
+		ft_putchar.c ft_putnbr.c ft_putstr.c ft_hexprint.c ft_puts.c\
+		ft_get_next_line.c ft_get_next_line_utils.c
 
 BONUS_FIlES = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c\
 				ft_lstiter.c ft_lstlast.c ft_lstnew.c ft_lstsize.c
