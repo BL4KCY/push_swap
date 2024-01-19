@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 10:02:49 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/17 10:26:24 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:51:24 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,6 @@ t_stack	*get_cheapest(t_stack *stack)
 		stack = stack->next;
 	}
 	return (tmp);
-}
-
-void	push_b(t_stack **a, t_stack **b)
-{
-	arrange(a, (*b)->target, 'a');
-	PA(a, b);
 }
 
 void	arrange(t_stack **stack, t_stack *top, char c)
