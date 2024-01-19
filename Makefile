@@ -26,23 +26,28 @@ SOURCES = $(FILES:%.c=$(SRC_DIR)/%.c)
 OBJECTS = $(SOURCES:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
 SOURCES_BONUS = $(FILES_BONUS:%.c=$(BNS_DIR)/%.c)
-OBJECTS_BONUS = $(SOURCES_BONUS:$(BNS_OBJ_DIR)%.c=$(OBJ_DIR)%.o)
+OBJECTS_BONUS = $(SOURCES_BONUS:$(BNS_DIR)%.c=$(BNS_OBJ_DIR)%.o)
 
 #______static library name______#
 NAME = push_swap
+BONUS_NAME = checker
 LIB = libft
 
 #______________Rules______________#
 
+
+
 $(NAME): $(OBJECTS) $(LIB)/libft.a
 	$(CC) $^ -I$(INCLUDES) -I$(LIB_INCLUDES) -o $@
 
-bonus: $(OBJECTS_BONUS) $(LIB)/libft.a
-	$(CC) $^ -I$(INCLUDES) -I$(LIB_INCLUDES) -o checker
+bonus:$(BONUS_NAME)
+
+$(BONUS_NAME): $(OBJECTS_BONUS) $(LIB)/libft.a
+	$(CC) $^ -I$(INCLUDES) -I$(LIB_INCLUDES) -o $@
 
 re: fclean all
 
-all: $(NAME)
+all: $(NAME) $(BONUS_NAME)
 
 # impicit rule for mandatory
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
@@ -63,10 +68,12 @@ $(LIB)/%.a:
 #______cleaning______#
 clean:
 	$(RM) $(OBJ_DIR)
+	$(RM) $(BNS_OBJ_DIR)
 	$(MAKE) -C $(LIB) fclean
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(BONUS_NAME)
 
-.PHONY: clean
+.PHONY: clean bonus
 
