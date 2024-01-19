@@ -6,13 +6,13 @@
 /*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 09:24:42 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/18 12:34:30 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:05:57 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -34,6 +34,8 @@ int main(int ac, char **av)
 		ft_putstr_fd("OK\n", STDOUT_FILENO);
 	else
 		ft_putstr_fd("KO\n", STDOUT_FILENO);
+	ft_lstclear(&stack_a);
+	ft_lstclear(&stack_b);
 	return (0);
 }
 
