@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 10:23:59 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/17 13:10:00 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:51:36 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,10 @@ void	min_to_top(t_stack **stack)
 		else
 			RRA(stack);
 	}
+}
+
+void	push_b(t_stack **a, t_stack **b)
+{
+	arrange(a, (*b)->target, 'a');
+	PA(a, b);
 }
