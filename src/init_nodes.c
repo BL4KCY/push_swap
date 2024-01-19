@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:11:05 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/19 10:48:41 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:52:47 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,11 @@ void	set_target_a(t_stack *a, t_stack *b)
 	}
 }
 
-void	set_target_b(t_stack *a, t_stack *b)
+int	max(int a, int b)
 {
-	t_stack	*curr_a;
-	t_stack	*target;
-	long	match_index;
-
-	while (b)
-	{
-		match_index = LONG_MAX;
-		curr_a = a;
-		while (curr_a)
-		{
-			if (curr_a->value > b->value && curr_a->value < match_index)
-			{
-				match_index = curr_a->value;
-				target = curr_a;
-			}
-			curr_a = curr_a->next;
-		}
-		if (match_index == LONG_MAX)
-			b->target = get_min(a);
-		else
-			b->target = target;
-		b = b->next;
-	}
+	if (a > b)
+		return (a);
+	return (b);
 }
 
 void	cost_to_a(t_stack *a, t_stack *b)
@@ -75,13 +55,17 @@ void	cost_to_a(t_stack *a, t_stack *b)
 	size_b = ft_lstsize(b);
 	while (a)
 	{
-		a->cost = a->index;
-		if (!a->above_median)
-			a->cost = size_a - a->index;
-		if (a->target->above_median)
-			a->cost += a->target->index;
+		if (a->above_median && a->target->above_median)
+			a->cost = max(a->index, a->target->index);
+		else if (!a->above_median && !a->target->above_median)
+			a->cost = max(size_a - a->index, size_b - a->target->index);
 		else
-			a->cost += size_b - a->target->index;
+		{
+			if (a->above_median)
+				a->cost = a->index + (size_b - a->target->index);
+			else
+				a->cost = a->target->index + (size_a - a->index);
+		}
 		a = a->next;
 	}
 }

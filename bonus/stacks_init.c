@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:47:56 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/19 11:07:21 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:55:28 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ bool	is_valid_arg(char *arg, t_stack *stack_a)
 			&& arg[i] != '+' && arg[i] != ' ')
 			return (false);
 		if (arg[i] == '-' || arg[i] == '+')
-			sign++;
-		if (sign > 1)
-			return (false);
+		{
+			if (!ft_isdigit(arg[i + 1]))
+				return (false);
+		}
 	}
 	if ((ft_atoi(arg) > INT_MAX || ft_atoi(arg) < INT_MIN)
 		|| !i || !is_valid_num(arg))

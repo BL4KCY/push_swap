@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 09:57:55 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/19 11:27:20 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 17:58:36 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void	init_a_nodes(t_stack *a, t_stack *b);
 void	init_b_nodes(t_stack *a, t_stack *b);
 
 // Function to move the minimum value to the top of the stack
-void	min_to_top(t_stack **stack);
+void	max_to_top(t_stack **stack);
 
 // arrange the stack by moving the top element to the specified position
 void	arrange(t_stack **stack, t_stack *top, char c);
@@ -140,5 +140,8 @@ void	both_rrotate(t_stack **a, t_stack **b, t_stack *top);
 
 // rotate both stacks A and B by moving the bottom elements to the top
 void	both_rotate(t_stack **a, t_stack **b, t_stack *top);
+
+// Function to sort a stack of five elements
+void	sort_five(t_stack **a, t_stack **b);
 
 #endif

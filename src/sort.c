@@ -6,7 +6,7 @@
 /*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/13 10:23:59 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/19 10:51:36 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 18:53:03 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,43 +25,55 @@ void	sort_three(t_stack **stack_a)
 		SA(stack_a);
 }
 
+void	sort_five(t_stack **a, t_stack **b)
+{
+	int		size;
+
+	size = ft_lstsize(*a);
+	while (size-- > 3)
+	{
+		current_index(*a);
+		while (*a != get_min(*a))
+		{
+			if (get_min(*a)->above_median)
+				RA(a);
+			else
+				RRA(a);
+		}
+		PB(b, a);
+	}
+	sort_three(a);
+	PA(a, b);
+	PA(a, b);
+}
+
 void	sort_stacks(t_stack **a, t_stack **b)
 {
 	int		len_a;
 
 	len_a = ft_lstsize(*a);
-	if (len_a-- > 3 && !is_sorted(*a))
-		PB(b, a);
-	if (len_a-- > 3 && !is_sorted(*a))
-		PB(b, a);
-	while (len_a-- > 3 && !is_sorted(*a))
+	PB(b, a);
+	PB(b, a);
+	while (*a)
 	{
 		init_a_nodes(*a, *b);
 		push_a(a, b);
 	}
-	sort_three(a);
+	current_index(*b);
+	max_to_top(b);
 	while (*b)
 	{
-		init_b_nodes(*a, *b);
-		push_b(a, b);
+		PA(a, b);
 	}
-	current_index(*a);
-	min_to_top(a);
 }
 
-void	min_to_top(t_stack **stack)
+void	max_to_top(t_stack **stack)
 {
-	while ((*stack)->value != get_min(*stack)->value)
+	while ((*stack)->value != get_max(*stack)->value)
 	{
-		if (get_min(*stack)->above_median)
-			RA(stack);
+		if (get_max(*stack)->above_median)
+			RB(stack);
 		else
-			RRA(stack);
+			RRB(stack);
 	}
-}
-
-void	push_b(t_stack **a, t_stack **b)
-{
-	arrange(a, (*b)->target, 'a');
-	PA(a, b);
 }
