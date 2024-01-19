@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stacks_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 11:47:56 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/15 16:07:12 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:50:36 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,16 @@ bool	is_valid_arg(char *arg, t_stack *stack_a)
 		return (false);
 	while (arg[++i])
 	{
-		if (!ft_isdigit(arg[i]) && arg[i] != '-' && arg[i] != '+' && arg[i] != ' ')
+		if (!ft_isdigit(arg[i]) && arg[i] != '-'
+			&& arg[i] != '+' && arg[i] != ' ')
 			return (false);
-		if(arg[i] == '-' || arg[i] == '+')
+		if (arg[i] == '-' || arg[i] == '+')
 			sign++;
 		if (sign > 1)
 			return (false);
 	}
-	if ((ft_atoi(arg) > INT_MAX || ft_atoi(arg) < INT_MIN) || !i || !is_valid_num(arg))
+	if ((ft_atoi(arg) > INT_MAX || ft_atoi(arg) < INT_MIN)
+		|| !i || !is_valid_num(arg))
 		return (false);
 	return (true);
 }
