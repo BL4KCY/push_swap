@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_nodes.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 12:11:05 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/17 10:25:08 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:48:41 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	set_target_a(t_stack *a, t_stack *b)
 		curr_b = b;
 		while (curr_b)
 		{
-			if (curr_b->value <  a->value && curr_b->value > match_index)
+			if (curr_b->value < a->value && curr_b->value > match_index)
 			{
 				match_index = curr_b->value;
 				target = curr_b;
@@ -64,7 +64,6 @@ void	set_target_b(t_stack *a, t_stack *b)
 			b->target = target;
 		b = b->next;
 	}
-
 }
 
 void	cost_to_a(t_stack *a, t_stack *b)
@@ -96,6 +95,7 @@ void	both_rotate(t_stack **a, t_stack **b, t_stack *top)
 		current_index(*b);
 	}
 }
+
 void	both_rrotate(t_stack **a, t_stack **b, t_stack *top)
 {
 	while (*a != top && *b != top->target)
