@@ -24,7 +24,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
-}t_list;
+}	t_list;
 
 typedef struct s_stack
 {
@@ -34,8 +34,8 @@ typedef struct s_stack
 	bool			above_median;
 	bool			cheapest;
 	struct s_stack	*target;
-	struct s_stack	*next;;
-}t_stack;
+	struct s_stack	*next;
+}	t_stack;
 
 typedef unsigned char	t_byte;
 

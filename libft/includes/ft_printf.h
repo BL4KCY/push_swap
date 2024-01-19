@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: melfersi <melfersi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 09:31:35 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/09 10:18:33 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 10:54:04 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,5 @@ int	ft_putchar(char c);
 int	ft_putnbr(ssize_t n);
 int	ft_print_format(char format, va_list args);
 int	ft_puts(char *s);
-
 
 #endif
