@@ -6,20 +6,13 @@
 /*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 15:38:58 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/17 13:10:08 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:03:31 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print(int content)
-{
-	ft_putnbr_fd(content, STDOUT_FILENO);
-	ft_putchar_fd('\n', STDOUT_FILENO);
-}
-
-
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
@@ -38,9 +31,6 @@ int main(int ac, char **av)
 		else
 			sort_stacks(&stack_a, &stack_b);
 	}
-	// ft_puts("stack A");
-	// ft_lstiter(stack_a, print);
 	ft_lstclear(&stack_a);
 	return (0);
 }
-
