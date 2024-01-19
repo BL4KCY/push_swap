@@ -6,13 +6,13 @@
 /*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:16:45 by melfersi          #+#    #+#             */
-/*   Updated: 2024/01/18 12:33:41 by melfersi         ###   ########.fr       */
+/*   Updated: 2024/01/19 11:06:27 by melfersi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int		push_case(char *operation, t_stack **stack_a, t_stack **stack_b)
+int	push_case(char *operation, t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_strncmp(operation, "pa\n", ft_strlen(operation)) == 0)
 	{
@@ -27,7 +27,7 @@ int		push_case(char *operation, t_stack **stack_a, t_stack **stack_b)
 	return (false);
 }
 
-int		swap_case(char *operation, t_stack **stack_a, t_stack **stack_b)
+int	swap_case(char *operation, t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_strncmp(operation, "sa\n", ft_strlen(operation)) == 0)
 	{
@@ -47,7 +47,7 @@ int		swap_case(char *operation, t_stack **stack_a, t_stack **stack_b)
 	return (false);
 }
 
-int		rotate_case(char *operation, t_stack **stack_a, t_stack **stack_b)
+int	rotate_case(char *operation, t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_strncmp(operation, "ra\n", ft_strlen(operation)) == 0)
 	{
@@ -66,7 +66,8 @@ int		rotate_case(char *operation, t_stack **stack_a, t_stack **stack_b)
 	}
 	return (false);
 }
-int		rev_rotate_case(char *operation, t_stack **stack_a, t_stack **stack_b)
+
+int	rev_rotate_case(char *operation, t_stack **stack_a, t_stack **stack_b)
 {
 	if (ft_strncmp(operation, "rra\n", ft_strlen(operation)) == 0)
 	{
