@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: melfersi <melfersi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/19 10:58:54 by melfersi          #+#    #+#             */
+/*   Updated: 2024/01/19 10:59:15 by melfersi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CHECKER_H
 # define CHECKER_H
 # include <unistd.h>
@@ -76,6 +88,5 @@ int		swap_case(char *operation, t_stack **stack_a, t_stack **stack_b);
 int		rotate_case(char *operation, t_stack **stack_a, t_stack **stack_b);
 
 int		rev_rotate_case(char *operation, t_stack **stack_a, t_stack **stack_b);
-
 
 #endif
